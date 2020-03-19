@@ -32,7 +32,7 @@ router.route('/:id').get((req, res) => {
 });
 
 router.route('/:id').delete((req, res) => {
-  help.findByIdAndDelete(req.params.id)
+  Help.findByIdAndDelete(req.params.id)
     .then(() => res.json('Help deleted.'))
     .catch(err => res.status(400).json('Error: ' + err));
 });
