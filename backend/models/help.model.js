@@ -5,8 +5,7 @@ const Schema = mongoose.Schema;
 const helpSchema = new Schema({
   username: { type: String, required: true },
   description: { type: String, required: true },
-  duration: { type: Number, required: true },
-  date: { type: Date, required: true },
+  subject: { type: String, required: true },
 }, {
   timestamps: true,
 });

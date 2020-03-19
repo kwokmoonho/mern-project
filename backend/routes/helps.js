@@ -10,14 +10,12 @@ router.route('/').get((req, res) => {
 router.route('/add').post((req, res) => {
   const username = req.body.username;
   const description = req.body.description;
-  const duration = Number(req.body.duration);
-  const date = Date.parse(req.body.date);
+  const subject = req.body.subject;
 
   const newHelp = new Help({
     username,
     description,
-    duration,
-    date,
+    subject
   });
 
   newHelp.save()
@@ -42,8 +40,7 @@ router.route('/update/:id').post((req, res) => {
     .then(help => {
       help.username = req.body.username;
       help.description = req.body.description;
-      help.duration = Number(req.body.duration);
-      help.date = Date.parse(req.body.date);
+      help.subject = req.body.subject;
 
       help.save()
         .then(() => res.json('Help updated!'))

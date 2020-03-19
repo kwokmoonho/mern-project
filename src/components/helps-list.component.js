@@ -6,8 +6,7 @@ const Help = props => (
   <tr>
     <td>{props.help.username}</td>
     <td>{props.help.description}</td>
-    <td>{props.help.duration}</td>
-    <td>{props.help.date.substring(0,10)}</td>
+    <td>{props.help.subject}</td>
     <td>
       <Link to={"/edit/"+props.help._id}>edit</Link> | <a href="#" onClick={() => { props.deleteHelp(props.help._id) }}>delete</a>
     </td>
@@ -51,14 +50,13 @@ export default class HelpsList extends Component {
   render() {
     return (
       <div>
-        <h3>Helps Queue</h3>
+        <h3>Helps Request List</h3>
         <table className="table">
           <thead className="thead-light">
             <tr>
-              <th>Username</th>
+              <th>Full Name</th>
               <th>Description</th>
-              <th>Duration</th>
-              <th>Date</th>
+              <th>Subject</th>
               <th>Actions</th>
             </tr>
           </thead>

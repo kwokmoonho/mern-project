@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import DatePicker from 'react-datepicker';
-import "react-datepicker/dist/react-datepicker.css";
 
 export default class CreateHelp extends Component {
   constructor(props) {
@@ -9,15 +7,13 @@ export default class CreateHelp extends Component {
 
     this.onChangeUsername = this.onChangeUsername.bind(this);
     this.onChangeDescription = this.onChangeDescription.bind(this);
-    this.onChangeDuration = this.onChangeDuration.bind(this);
-    this.onChangeDate = this.onChangeDate.bind(this);
+    this.onChangeSubject = this.onChangeSubject.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
       username: '',
       description: '',
-      duration: 0,
-      date: new Date(),
+      subject: '',
       users: []
     }
   }
@@ -50,17 +46,12 @@ export default class CreateHelp extends Component {
     })
   }
 
-  onChangeDuration(e) {
+  onChangeSubject(e) {
     this.setState({
-      duration: e.target.value
+      subject: e.target.value
     })
   }
 
-  onChangeDate(date) {
-    this.setState({
-      date: date
-    })
-  }
 
   onSubmit(e) {
     e.preventDefault();
@@ -68,8 +59,7 @@ export default class CreateHelp extends Component {
     const help = {
       username: this.state.username,
       description: this.state.description,
-      duration: this.state.duration,
-      date: this.state.date
+      subject: this.state.subject
     }
 
     console.log(help);
@@ -83,10 +73,10 @@ export default class CreateHelp extends Component {
   render() {
     return (
     <div>
-      <h3>Create New Help Log</h3>
+      <h3>Request Help</h3>
       <form onSubmit={this.onSubmit}>
         <div className="form-group"> 
-          <label>Username: </label>
+          <label>Full Name: </label>
           <select ref="userInput"
               required
               className="form-control"
@@ -112,26 +102,17 @@ export default class CreateHelp extends Component {
               />
         </div>
         <div className="form-group">
-          <label>Duration (in minutes): </label>
+          <label>Subject (e.g ENG101): </label>
           <input 
               type="text" 
               className="form-control"
-              value={this.state.duration}
-              onChange={this.onChangeDuration}
+              value={this.state.subject}
+              onChange={this.onChangeSubject}
               />
-        </div>
-        <div className="form-group">
-          <label>Date: </label>
-          <div>
-            <DatePicker
-              selected={this.state.date}
-              onChange={this.onChangeDate}
-            />
-          </div>
         </div>
 
         <div className="form-group">
-          <input type="submit" value="Create Help Log" className="btn btn-primary" />
+          <input type="submit" value="Request Help" className="btn btn-primary" />
         </div>
       </form>
     </div>
