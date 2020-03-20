@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+
 export default class CreateHelp extends Component {
   constructor(props) {
     super(props);
@@ -19,7 +20,7 @@ export default class CreateHelp extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5000/users/')
+    axios.get(process.env.ATLAS_URI)
       .then(response => {
         if (response.data.length > 0) {
           this.setState({
@@ -64,7 +65,7 @@ export default class CreateHelp extends Component {
 
     console.log(help);
 
-    axios.post('http://localhost:5000/helps/add', help)
+    axios.post(process.env.ATLAS_URI, help)
       .then(res => console.log(res.data));
 
     window.location = '/';

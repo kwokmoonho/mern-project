@@ -19,7 +19,7 @@ export default class EditHelp extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5000/helps/'+this.props.match.params.id)
+    axios.get(process.env.ATLAS_URI+this.props.match.params.id)
       .then(response => {
         this.setState({
           username: response.data.username,
@@ -31,7 +31,7 @@ export default class EditHelp extends Component {
         console.log(error);
       })
 
-    axios.get('http://localhost:5000/users/')
+    axios.get(process.env.ATLAS_URI)
       .then(response => {
         if (response.data.length > 0) {
           this.setState({
