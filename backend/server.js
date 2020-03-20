@@ -1,17 +1,19 @@
 const express = require('express');
 const cors = require('cors');
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 require('dotenv').config();
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
 
-// const uri = process.env.ATLAS_URI;
-mongoose.connect(process.env.ATLAS_URI || 'mongodb://localhost/labhelper');
+const uri = process.env.ATLAS_URI;
+// mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true }
+// );
+mongoose.connect(uri);
 const connection = mongoose.connection;
 connection.once('open', () => {
   console.log("MongoDB database connection established successfully");
