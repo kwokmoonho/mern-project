@@ -19,7 +19,7 @@ export default class EditHelp extends Component {
   }
 
   componentDidMount() {
-    axios.get('https://labhelper.herokuapp.com/helps/'+this.props.match.params.id)
+    axios.get('http://localhost:5000/helps/'+this.props.match.params.id)
       .then(response => {
         this.setState({
           username: response.data.username,
@@ -31,7 +31,7 @@ export default class EditHelp extends Component {
         console.log(error);
       })
 
-    axios.get('https://labhelper.herokuapp.com/users/')
+    axios.get('http://localhost:5000/users/')
       .then(response => {
         if (response.data.length > 0) {
           this.setState({
@@ -74,7 +74,7 @@ export default class EditHelp extends Component {
 
     console.log(help);
 
-    axios.post('https://labhelper.herokuapp.com/helps/update/' + this.props.match.params.id, help)
+    axios.post('http://localhost:5000/helps/update/' + this.props.match.params.id, help)
       .then(res => console.log(res.data));
 
     window.location = '/';
