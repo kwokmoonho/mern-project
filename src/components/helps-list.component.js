@@ -23,7 +23,7 @@ export default class HelpsList extends Component {
   }
 
   componentDidMount() {
-    axios.get(process.env.ATLAS_URI)
+    axios.get('http://localhost:5000/helps/')
       .then(response => {
         this.setState({ helps: response.data })
       })
