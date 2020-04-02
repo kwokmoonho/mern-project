@@ -19,7 +19,7 @@ export default class CreateHelp extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5000/users/')
+    axios.get('/users/')
       .then(response => {
         if (response.data.length > 0) {
           this.setState({
@@ -64,7 +64,7 @@ export default class CreateHelp extends Component {
 
     console.log(help);
 
-    axios.post('http://localhost:5000/helps/add', help)
+    axios.post('/helps/add', help)
       .then(res => console.log(res.data));
 
     window.location = '/';
