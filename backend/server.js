@@ -17,11 +17,6 @@ const usersRouter = require('./routes/users');
 app.use('/helps', helpsRouter);
 app.use('/users', usersRouter);
 
-app.use(express.static(path.join(__dirname, '../public')));
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public'))
-})
-
 mongoose.connect(uri || 'mongodb://localhost/labhelper', { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
 const connection = mongoose.connection;
 connection.once('open', () => {
