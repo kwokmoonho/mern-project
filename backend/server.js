@@ -10,6 +10,13 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
+const corsOptions = {
+  origin: 'https://labhelper.herokuapp.com',
+  optionsSuccessStatus: 200
+}
+app.use(cors(corsOptions));
+app.options('*', cors());
+
 const uri = process.env.ATLAS_URI;
 mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true }
 );
