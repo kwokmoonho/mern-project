@@ -23,7 +23,7 @@ export default class HelpsList extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5000/helps/')
+    axios.get('https://labhelper.herokuapp.com/helps/')
       .then(response => {
         this.setState({ helps: response.data })
       })
@@ -33,7 +33,7 @@ export default class HelpsList extends Component {
   }
 
   deleteHelp(id) {
-    axios.delete('http://localhost:5000/helps/'+id)
+    axios.delete('https://labhelper.herokuapp.com/helps/'+id)
       .then(response => { console.log(response.data)});
 
     this.setState({
