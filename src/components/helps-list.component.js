@@ -23,7 +23,7 @@ export default class HelpsList extends Component {
   }
 
   componentDidMount() {
-    axios.get('/helps/')
+    axios.get('http://localhost:5000/helps/')
       .then(response => {
         this.setState({ helps: response.data })
       })
@@ -33,7 +33,7 @@ export default class HelpsList extends Component {
   }
 
   deleteHelp(id) {
-    axios.delete('/helps/'+id)
+    axios.delete('http://localhost:5000/helps/'+id)
       .then(response => { console.log(response.data)});
 
     this.setState({
