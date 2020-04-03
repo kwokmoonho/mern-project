@@ -1,1 +1,1 @@
-web: web rpm start
+web: npm start
