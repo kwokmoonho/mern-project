@@ -12,11 +12,8 @@ app.use(express.json());
 
 const uri = process.env.ATLAS_URI;
 mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true }
-);
-const connection = mongoose.connection;
-connection.once('open', () => {
-  console.log("MongoDB database connection established successfully");
-})
+).then(connect => console.log('connected to mongodb..')).catch(e => console.log('could not connect to mongodb', e))
+module.exports = {mongoose};
 
 const helpsRouter = require('./routes/helps');
 const usersRouter = require('./routes/users');
