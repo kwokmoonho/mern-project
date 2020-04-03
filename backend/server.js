@@ -21,7 +21,7 @@ connection.once('open', () => {
   console.log("MongoDB database connection established successfully");
 })
 
-app.use(express.static(path.join(__dirname, '../public/buildd')))
+app.use(express.static(path.join(__dirname, '../public/build')))
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/build'))
 })
