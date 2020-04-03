@@ -1,1 +1,1 @@
-web: nodemon server
+web: web rpm start
