@@ -16,7 +16,7 @@ mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedT
 const connection = mongoose.connection;
 connection.once('open', () => {
   console.log("MongoDB database connection established successfully");
-})
+});
 
 const helpsRouter = require('./routes/helps');
 const usersRouter = require('./routes/users');
